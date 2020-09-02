@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@500;700&display=swap" rel="stylesheet">
+    <title>Tailwind CSS Pricing Table with Toggle</title>
+    <style>
+     
+  
+      .toggle_dot {
+        top: -.25rem;
+        transition: all 0.3s ease-in-out;
+      }
+  
+      input:checked~.toggle_dot {
+        transform: translateX(100%);
+        background-color: #0082c8;
+      }
+  
+      .bg-gradient {
+        background: #667db6;
+        /* fallback for old browsers */
+        background: -webkit-linear-gradient(to right, #667db6, #0082c8, #0082c8, #667db6);
+        /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to right, #667db6, #0082c8, #0082c8, #667db6);
+        /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+      }
+  
+      .bg-gradient-base {
+        background-color: #0082c8;
+      }
+  
+      .font-work-sans {
+        font-family: 'Work Sans', sans-serif;
+      }
+    </style>
+  </head>
+  
+  <body class="text-gray-900 font-work-sans h-screen bg-no-repeat bg-left-bottom sm:bg-svg-bottom">
+  
+   
+  
+    <h1 class="text-center font-bold text-5xl mt-8 tracking-wide relative">Our Pricing</h1>
+  
+    <div class="flex flex-row justify-center my-4 text-sm tracking-tight font-medium text-gray-700">
+      <p class="mx-3">Annually</p>
+  
+      <!-- Toggle Button -->
+      <label for="toggle" class="flex items-center cursor-pointer">
+        <!-- toggle -->
+        <div class="relative">
+          <!-- hidden input -->
+          <input id="toggle" type="checkbox" class="hidden" onclick="myFunction()" />
+          <!-- line -->
+          <div class="w-10 h-3 bg-gray-400 rounded-full shadow-inner"></div>
+          <!-- dot -->
+          <div class="toggle_dot absolute w-5 h-5 bg-white rounded-full shadow inset-y-0 left-0"></div>
+        </div>
+      </label>
+  
+      <p class="mx-3">Monthly</p>
+    </div>
+  
+    <div class="flex flex-col md:flex-row md:transform md:scale-75 lg:scale-100 justify-center">
+      <div class="border rounded-lg md:rounded-r-none text-center p-5 mx-auto md:mx-0 my-2 md:my-6 bg-gray-100 font-medium z-10 shadow-lg">
+        <div class="">Basic</div>
+        <div id="month" class="font-bold text-6xl month hidden">&dollar;19</div>
+        <div id="annual" class="font-bold text-6xl annual">&dollar;199</div>
+        <hr>
+        <div class="text-sm my-3">500 GB Storage</div>
+        <hr>
+        <div class="text-sm my-3">2 Users Allowed</div>
+        <hr>
+        <div class="text-sm my-3">Send up to 3 GB</div>
+        <hr>
+        <a href="#" target="_blank">
+          <div class="bg-gradient-base border border-blue-600 hover:bg-white text-white hover:text-blue-600 font-bold uppercase text-xs mt-5 py-2 px-4 rounded cursor-pointer">Learn More</div>
+        </a>
+      </div>
+  
+      <div class="border-transparent rounded-lg text-center p-5 mx-auto md:mx-0 my-2 bg-gradient text-white font-medium z-10 shadow-lg">
+        <div class="py-4">Professional
+          <div id="month" class="font-bold text-6xl month hidden">&dollar;25</div>
+          <div id="annual" class="font-bold text-6xl annual">&dollar;250</div>
+          <hr>
+          <div class="text-sm my-3">1 TB Storage</div>
+          <hr>
+          <div class="text-sm my-3">5 Users Allowed</div>
+          <hr>
+          <div class="text-sm my-3">Send up to 10 GB</div>
+          <hr>
+          <a href="#" target="_blank">
+            <div class="bg-white border border-white hover:bg-transparent text-blue-600 hover:text-white font-bold uppercase text-xs mt-5 py-2 mpx-4 rounded cursor-pointer">Learn More</div>
+          </a>
+        </div>
+      </div>
+  
+      <div class="border rounded-lg  md:rounded-l-none text-center p-5 mx-auto md:mx-0 my-2 md:my-6 bg-gray-100 font-medium z-10 shadow-lg">
+        <div class="">Master</div>
+        <div id="month" class="font-bold text-6xl month hidden">&dollar;40</div>
+        <div id="annual" class="font-bold text-6xl annual">&dollar;400</div>
+        <hr>
+        <div class="text-sm my-3">2 TB Storage</div>
+        <hr>
+        <div class="text-sm my-3">10 Users Allowed</div>
+        <hr>
+        <div class="text-sm my-3">Send up to 20 GB</div>
+        <hr>
+        <a href="#" target="_blank">
+          <div class="bg-gradient-base border border-blue-600 hover:bg-transparent text-white hover:text-blue-600 font-bold uppercase text-xs mt-5 py-2 px-4 rounded cursor-pointer">Learn More</div>
+        </a>
+      </div>
+    </div>
+  
+    <!--JS for toggle-->
+    <script>
+      function myFunction() {
+        var x = document.querySelectorAll('.annual');
+        var y = document.querySelectorAll('.month');
+        for (var i = 0; i < x.length; i++) {
+          if (document.getElementById("toggle").checked == true) {
+            x[i].classList.add('hidden');
+            y[i].classList.remove('hidden');
+          } else {
+            x[i].classList.remove('hidden');
+            y[i].classList.add('hidden');
+          }
+        }
+      }
+    </script>
+  
+  </body>
+  
+  </html>
